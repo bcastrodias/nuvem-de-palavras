@@ -38,6 +38,14 @@ h1 { margin:0; font-family:var(--titulo); font-weight:400; font-size:clamp(1.9re
 @media (max-width:600px) { #cena3d { aspect-ratio:1/1; } }
 #cena3d.arrastando { cursor:grabbing; }
 #cena3d canvas { display:block; width:100%; height:100%; }
+.controles { display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+#btn-mao { font:600 1rem var(--corpo); background:var(--texto); color:var(--papel); border:0; border-radius:999px; padding:10px 20px; cursor:pointer; }
+#btn-mao:focus-visible { outline:3px solid var(--terracota); outline-offset:3px; }
+#btn-mao:disabled { opacity:.6; cursor:progress; }
+#estado-mao { color:var(--suave); font-size:.95rem; }
+#video-mao { position:absolute; right:12px; bottom:12px; width:min(150px,32%); border-radius:12px; border:2px solid var(--papel); transform:scaleX(-1); }
+#mao { position:absolute; width:28px; height:28px; margin:-14px 0 0 -14px; border:3px solid var(--texto); border-radius:50%; pointer-events:none; }
+#mao.agarrando { background:var(--terracota); border-color:var(--terracota); }
 #dica { position:absolute; pointer-events:none; background:var(--papel); color:var(--texto); border:1px solid var(--linha);
   border-radius:8px; padding:4px 10px; font-size:.9rem; font-weight:500; white-space:nowrap; }
 svg { width:100%; height:auto; display:block; }
@@ -59,7 +67,8 @@ td:last-child, th:last-child { text-align:right; }
   <h1>Palavras mais frequentes nos artigos</h1>
   <p class="sub">4 textos, 8535 palavras de conteúdo. Tamanho e cor indicam a frequência; arraste para girar e passe o mouse para ver a contagem.</p>
 </header>
-<div class="painel" id="painel"><div id="cena3d" hidden></div><div id="dica" hidden></div><svg viewBox="0 0 1000 620" role="img" aria-label="Nuvem com as 53 palavras mais frequentes"><text class="p c0" x="500.0" y="341.3" font-size="92.0"><title>política: 82 ocorrências</title>política</text><text class="p c0" x="491.4" y="244.3" font-size="80.2"><title>polarização: 67 ocorrências</title>polarização</text><text class="p c0" x="558.4" y="426.9" font-size="75.1"><title>segurança: 61 ocorrências</title>segurança</text><text class="p c0" x="492.1" y="500.4" font-size="62.1"><title>policiais: 47 ocorrências</title>policiais</text><text class="p c0" x="419.5" y="161.9" font-size="55.9"><title>forças: 41 ocorrências</title>forças</text><text class="p c0" x="252.2" y="412.5" font-size="52.7"><title>pública: 38 ocorrências</title>pública</text><text class="p c0" x="416.5" y="103.3" font-size="51.6"><title>violência: 37 ocorrências</title>violência</text><text class="p c0" x="159.0" y="342.5" font-size="47.0"><title>políticas: 33 ocorrências</title>políticas</text><text class="p c0" x="809.2" y="304.9" font-size="44.6"><title>polícia: 31 ocorrências</title>polícia</text><text class="p c0" x="600.8" y="159.6" font-size="39.5"><title>público: 27 ocorrências</title>público</text><text class="p c0" x="466.9" y="546.8" font-size="38.2"><title>literatura: 26 ocorrências</title>literatura</text><text class="p c0" x="256.8" y="480.1" font-size="35.5"><title>valores: 24 ocorrências</title>valores</text><text class="p c1" x="668.5" y="102.8" font-size="35.5"><title>candidatos: 24 ocorrências</title>candidatos</text><text class="p c1" x="820.7" y="380.5" font-size="34.1"><title>grupos: 23 ocorrências</title>grupos</text><text class="p c1" x="842.9" y="225.2" font-size="32.7"><title>brasileiro: 22 ocorrências</title>brasileiro</text><text class="p c1" x="170.1" y="258.5" font-size="32.7"><title>social: 22 ocorrências</title>social</text><text class="p c1" x="733.8" y="166.6" font-size="32.7"><title>mundo: 22 ocorrências</title>mundo</text><text class="p c1" x="798.2" y="473.1" font-size="32.7"><title>militares: 22 ocorrências</title>militares</text><text class="p c1" x="195.5" y="162.7" font-size="31.2"><title>eleições: 21 ocorrências</title>eleições</text><text class="p c1" x="708.1" y="545.7" font-size="29.7"><title>político: 20 ocorrências</title>político</text><text class="p c1" x="579.7" y="580.4" font-size="29.7"><title>estudos: 20 ocorrências</title>estudos</text><text class="p c1" x="440.8" y="583.1" font-size="28.2"><title>debate: 19 ocorrências</title>debate</text><text class="p c1" x="421.6" y="52.1" font-size="28.2"><title>políticos: 19 ocorrências</title>políticos</text><text class="p c1" x="564.1" y="49.1" font-size="26.6"><title>federal: 18 ocorrências</title>federal</text><text class="p c2" x="892.5" y="410.5" font-size="26.6"><title>estado: 18 ocorrências</title>estado</text><text class="p c2" x="292.2" y="563.6" font-size="26.6"><title>posições: 18 ocorrências</title>posições</text><text class="p c2" x="102.6" y="417.3" font-size="26.6"><title>grupo: 18 ocorrências</title>grupo</text><text class="p c2" x="98.9" y="223.0" font-size="26.6"><title>pessoas: 18 ocorrências</title>pessoas</text><text class="p c2" x="833.9" y="507.7" font-size="26.6"><title>sociais: 18 ocorrências</title>sociais</text><text class="p c2" x="832.1" y="133.2" font-size="25.0"><title>brasileira: 17 ocorrências</title>brasileira</text><text class="p c2" x="160.6" y="123.4" font-size="25.0"><title>crime: 17 ocorrências</title>crime</text><text class="p c2" x="733.1" y="59.7" font-size="25.0"><title>democracia: 17 ocorrências</title>democracia</text><text class="p c2" x="136.5" y="511.1" font-size="25.0"><title>candidaturas: 17 ocorrências</title>candidaturas</text><text class="p c2" x="717.2" y="572.2" font-size="23.3"><title>disputa: 16 ocorrências</title>disputa</text><text class="p c2" x="573.4" y="607.2" font-size="23.3"><title>autores: 16 ocorrências</title>autores</text><text class="p c2" x="689.6" y="502.0" font-size="23.3"><title>anos: 16 ocorrências</title>anos</text><text class="p c3" x="277.7" y="41.8" font-size="23.3"><title>pesquisa: 16 ocorrências</title>pesquisa</text><text class="p c3" x="723.6" y="601.4" font-size="23.3"><title>sistema: 16 ocorrências</title>sistema</text><text class="p c3" x="942.9" y="438.2" font-size="23.3"><title>quanto: 16 ocorrências</title>quanto</text><text class="p c3" x="240.5" y="590.2" font-size="23.3"><title>partido: 16 ocorrências</title>partido</text><text class="p c3" x="49.1" y="192.5" font-size="23.3"><title>ordem: 16 ocorrências</title>ordem</text><text class="p c3" x="935.4" y="318.2" font-size="21.6"><title>tempo: 15 ocorrências</title>tempo</text><text class="p c3" x="855.0" y="532.0" font-size="21.6"><title>esquerda: 15 ocorrências</title>esquerda</text><text class="p c3" x="140.1" y="96.0" font-size="21.6"><title>nacional: 15 ocorrências</title>nacional</text><text class="p c3" x="420.0" y="606.0" font-size="19.8"><title>país: 14 ocorrências</title>país</text><text class="p c3" x="787.1" y="31.6" font-size="19.8"><title>plataformas: 14 ocorrências</title>plataformas</text><text class="p c3" x="873.8" y="558.6" font-size="19.8"><title>discurso: 14 ocorrências</title>discurso</text><text class="p c3" x="121.8" y="67.3" font-size="17.9"><title>mercado: 13 ocorrências</title>mercado</text><text class="p c4" x="328.8" y="443.4" font-size="17.9"><title>estudo: 13 ocorrências</title>estudo</text><text class="p c4" x="890.3" y="586.1" font-size="17.9"><title>direita: 13 ocorrências</title>direita</text><text class="p c4" x="106.0" y="38.8" font-size="17.9"><title>eleitorais: 13 ocorrências</title>eleitorais</text><text class="p c4" x="939.3" y="110.2" font-size="17.9"><title>poder: 13 ocorrências</title>poder</text><text class="p c4" x="245.8" y="279.3" font-size="16.0"><title>vezes: 12 ocorrências</title>vezes</text></svg></div>
+<div class="painel" id="painel"><div id="cena3d" hidden></div><div id="dica" hidden></div><video id="video-mao" playsinline muted hidden></video><div id="mao" hidden></div><svg viewBox="0 0 1000 620" role="img" aria-label="Nuvem com as 53 palavras mais frequentes"><text class="p c0" x="500.0" y="341.3" font-size="92.0"><title>política: 82 ocorrências</title>política</text><text class="p c0" x="491.4" y="244.3" font-size="80.2"><title>polarização: 67 ocorrências</title>polarização</text><text class="p c0" x="558.4" y="426.9" font-size="75.1"><title>segurança: 61 ocorrências</title>segurança</text><text class="p c0" x="492.1" y="500.4" font-size="62.1"><title>policiais: 47 ocorrências</title>policiais</text><text class="p c0" x="419.5" y="161.9" font-size="55.9"><title>forças: 41 ocorrências</title>forças</text><text class="p c0" x="252.2" y="412.5" font-size="52.7"><title>pública: 38 ocorrências</title>pública</text><text class="p c0" x="416.5" y="103.3" font-size="51.6"><title>violência: 37 ocorrências</title>violência</text><text class="p c0" x="159.0" y="342.5" font-size="47.0"><title>políticas: 33 ocorrências</title>políticas</text><text class="p c0" x="809.2" y="304.9" font-size="44.6"><title>polícia: 31 ocorrências</title>polícia</text><text class="p c0" x="600.8" y="159.6" font-size="39.5"><title>público: 27 ocorrências</title>público</text><text class="p c0" x="466.9" y="546.8" font-size="38.2"><title>literatura: 26 ocorrências</title>literatura</text><text class="p c0" x="256.8" y="480.1" font-size="35.5"><title>valores: 24 ocorrências</title>valores</text><text class="p c1" x="668.5" y="102.8" font-size="35.5"><title>candidatos: 24 ocorrências</title>candidatos</text><text class="p c1" x="820.7" y="380.5" font-size="34.1"><title>grupos: 23 ocorrências</title>grupos</text><text class="p c1" x="842.9" y="225.2" font-size="32.7"><title>brasileiro: 22 ocorrências</title>brasileiro</text><text class="p c1" x="170.1" y="258.5" font-size="32.7"><title>social: 22 ocorrências</title>social</text><text class="p c1" x="733.8" y="166.6" font-size="32.7"><title>mundo: 22 ocorrências</title>mundo</text><text class="p c1" x="798.2" y="473.1" font-size="32.7"><title>militares: 22 ocorrências</title>militares</text><text class="p c1" x="195.5" y="162.7" font-size="31.2"><title>eleições: 21 ocorrências</title>eleições</text><text class="p c1" x="708.1" y="545.7" font-size="29.7"><title>político: 20 ocorrências</title>político</text><text class="p c1" x="579.7" y="580.4" font-size="29.7"><title>estudos: 20 ocorrências</title>estudos</text><text class="p c1" x="440.8" y="583.1" font-size="28.2"><title>debate: 19 ocorrências</title>debate</text><text class="p c1" x="421.6" y="52.1" font-size="28.2"><title>políticos: 19 ocorrências</title>políticos</text><text class="p c1" x="564.1" y="49.1" font-size="26.6"><title>federal: 18 ocorrências</title>federal</text><text class="p c2" x="892.5" y="410.5" font-size="26.6"><title>estado: 18 ocorrências</title>estado</text><text class="p c2" x="292.2" y="563.6" font-size="26.6"><title>posições: 18 ocorrências</title>posições</text><text class="p c2" x="102.6" y="417.3" font-size="26.6"><title>grupo: 18 ocorrências</title>grupo</text><text class="p c2" x="98.9" y="223.0" font-size="26.6"><title>pessoas: 18 ocorrências</title>pessoas</text><text class="p c2" x="833.9" y="507.7" font-size="26.6"><title>sociais: 18 ocorrências</title>sociais</text><text class="p c2" x="832.1" y="133.2" font-size="25.0"><title>brasileira: 17 ocorrências</title>brasileira</text><text class="p c2" x="160.6" y="123.4" font-size="25.0"><title>crime: 17 ocorrências</title>crime</text><text class="p c2" x="733.1" y="59.7" font-size="25.0"><title>democracia: 17 ocorrências</title>democracia</text><text class="p c2" x="136.5" y="511.1" font-size="25.0"><title>candidaturas: 17 ocorrências</title>candidaturas</text><text class="p c2" x="717.2" y="572.2" font-size="23.3"><title>disputa: 16 ocorrências</title>disputa</text><text class="p c2" x="573.4" y="607.2" font-size="23.3"><title>autores: 16 ocorrências</title>autores</text><text class="p c2" x="689.6" y="502.0" font-size="23.3"><title>anos: 16 ocorrências</title>anos</text><text class="p c3" x="277.7" y="41.8" font-size="23.3"><title>pesquisa: 16 ocorrências</title>pesquisa</text><text class="p c3" x="723.6" y="601.4" font-size="23.3"><title>sistema: 16 ocorrências</title>sistema</text><text class="p c3" x="942.9" y="438.2" font-size="23.3"><title>quanto: 16 ocorrências</title>quanto</text><text class="p c3" x="240.5" y="590.2" font-size="23.3"><title>partido: 16 ocorrências</title>partido</text><text class="p c3" x="49.1" y="192.5" font-size="23.3"><title>ordem: 16 ocorrências</title>ordem</text><text class="p c3" x="935.4" y="318.2" font-size="21.6"><title>tempo: 15 ocorrências</title>tempo</text><text class="p c3" x="855.0" y="532.0" font-size="21.6"><title>esquerda: 15 ocorrências</title>esquerda</text><text class="p c3" x="140.1" y="96.0" font-size="21.6"><title>nacional: 15 ocorrências</title>nacional</text><text class="p c3" x="420.0" y="606.0" font-size="19.8"><title>país: 14 ocorrências</title>país</text><text class="p c3" x="787.1" y="31.6" font-size="19.8"><title>plataformas: 14 ocorrências</title>plataformas</text><text class="p c3" x="873.8" y="558.6" font-size="19.8"><title>discurso: 14 ocorrências</title>discurso</text><text class="p c3" x="121.8" y="67.3" font-size="17.9"><title>mercado: 13 ocorrências</title>mercado</text><text class="p c4" x="328.8" y="443.4" font-size="17.9"><title>estudo: 13 ocorrências</title>estudo</text><text class="p c4" x="890.3" y="586.1" font-size="17.9"><title>direita: 13 ocorrências</title>direita</text><text class="p c4" x="106.0" y="38.8" font-size="17.9"><title>eleitorais: 13 ocorrências</title>eleitorais</text><text class="p c4" x="939.3" y="110.2" font-size="17.9"><title>poder: 13 ocorrências</title>poder</text><text class="p c4" x="245.8" y="279.3" font-size="16.0"><title>vezes: 12 ocorrências</title>vezes</text></svg></div>
+<div class="controles" id="controles" hidden><button type="button" id="btn-mao" aria-pressed="false">Controlar com a mão</button><span id="estado-mao" role="status">Usa a câmera. O vídeo é analisado no seu navegador e não é enviado.</span></div>
 <p class="nota">A contagem é pela forma exata da palavra: "política", "políticas" e "político" aparecem separadas. Bibliografia, cabeçalhos e palavras funcionais ficaram de fora.</p>
 <details><summary>Ver como tabela</summary><div class="tabela"><table><thead><tr><th>#</th><th>Termo</th><th>Ocorrências</th></tr></thead><tbody><tr><td>1</td><td>política</td><td>82</td></tr><tr><td>2</td><td>polarização</td><td>67</td></tr><tr><td>3</td><td>segurança</td><td>61</td></tr><tr><td>4</td><td>policiais</td><td>47</td></tr><tr><td>5</td><td>forças</td><td>41</td></tr><tr><td>6</td><td>pública</td><td>38</td></tr><tr><td>7</td><td>violência</td><td>37</td></tr><tr><td>8</td><td>políticas</td><td>33</td></tr><tr><td>9</td><td>polícia</td><td>31</td></tr><tr><td>10</td><td>público</td><td>27</td></tr><tr><td>11</td><td>literatura</td><td>26</td></tr><tr><td>12</td><td>valores</td><td>24</td></tr><tr><td>13</td><td>candidatos</td><td>24</td></tr><tr><td>14</td><td>grupos</td><td>23</td></tr><tr><td>15</td><td>brasileiro</td><td>22</td></tr><tr><td>16</td><td>social</td><td>22</td></tr><tr><td>17</td><td>mundo</td><td>22</td></tr><tr><td>18</td><td>militares</td><td>22</td></tr><tr><td>19</td><td>eleições</td><td>21</td></tr><tr><td>20</td><td>político</td><td>20</td></tr><tr><td>21</td><td>estudos</td><td>20</td></tr><tr><td>22</td><td>debate</td><td>19</td></tr><tr><td>23</td><td>políticos</td><td>19</td></tr><tr><td>24</td><td>federal</td><td>18</td></tr><tr><td>25</td><td>estado</td><td>18</td></tr><tr><td>26</td><td>posições</td><td>18</td></tr><tr><td>27</td><td>grupo</td><td>18</td></tr><tr><td>28</td><td>pessoas</td><td>18</td></tr><tr><td>29</td><td>sociais</td><td>18</td></tr><tr><td>30</td><td>brasileira</td><td>17</td></tr><tr><td>31</td><td>crime</td><td>17</td></tr><tr><td>32</td><td>democracia</td><td>17</td></tr><tr><td>33</td><td>candidaturas</td><td>17</td></tr><tr><td>34</td><td>disputa</td><td>16</td></tr><tr><td>35</td><td>autores</td><td>16</td></tr><tr><td>36</td><td>anos</td><td>16</td></tr><tr><td>37</td><td>pesquisa</td><td>16</td></tr><tr><td>38</td><td>sistema</td><td>16</td></tr><tr><td>39</td><td>quanto</td><td>16</td></tr><tr><td>40</td><td>partido</td><td>16</td></tr><tr><td>41</td><td>ordem</td><td>16</td></tr><tr><td>42</td><td>tempo</td><td>15</td></tr><tr><td>43</td><td>esquerda</td><td>15</td></tr><tr><td>44</td><td>nacional</td><td>15</td></tr><tr><td>45</td><td>país</td><td>14</td></tr><tr><td>46</td><td>plataformas</td><td>14</td></tr><tr><td>47</td><td>discurso</td><td>14</td></tr><tr><td>48</td><td>mercado</td><td>13</td></tr><tr><td>49</td><td>estudo</td><td>13</td></tr><tr><td>50</td><td>direita</td><td>13</td></tr><tr><td>51</td><td>eleitorais</td><td>13</td></tr><tr><td>52</td><td>poder</td><td>13</td></tr><tr><td>53</td><td>vezes</td><td>12</td></tr></tbody></table></div></details>
 </main>
@@ -186,6 +195,98 @@ td:last-child, th:last-child { text-align:right; }
     renderer.render(scene, camera);
     requestAnimationFrame(quadro);
   }
+  // Controle pela mão (câmera + MediaPipe Hands). O vídeo é analisado no próprio navegador e não é enviado.
+  var btn = document.getElementById("btn-mao"), estado = document.getElementById("estado-mao"),
+      video = document.getElementById("video-mao"), cursor = document.getElementById("mao"),
+      MP = "https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/";
+  var maoLigada = false, rastreador = null, fluxo = null, pinca = false, mx = null, my = null;
+  function dizer(t) { estado.textContent = t; }
+  function carregar(src) {
+    return new Promise(function (ok, erro) {
+      if (window.Hands) return ok();
+      var s = document.createElement("script");
+      s.src = src; s.onload = ok; s.onerror = erro;
+      document.head.appendChild(s);
+    });
+  }
+  function dist(a, b) { return Math.hypot(a.x - b.x, a.y - b.y); }
+  function resultado(r) {
+    if (!maoLigada) return;
+    var m = r.multiHandLandmarks && r.multiHandLandmarks[0];
+    if (!m) {
+      cursor.hidden = true; pinca = false; arrastando = false; mx = null; ativo = null; dica.hidden = true;
+      cena.classList.remove("arrastando");
+      dizer("Mostre a mão para a câmera.");
+      return;
+    }
+    // Centro da palma, espelhado para acompanhar o movimento de quem olha a tela.
+    var x = 1 - (m[0].x + m[5].x + m[17].x) / 3, y = (m[0].y + m[5].y + m[17].y) / 3;
+    // Pinça: polegar e indicador juntos, medidos em relação ao tamanho da mão. Dois limites evitam tremor.
+    var abertura = dist(m[4], m[8]) / Math.max(dist(m[0], m[9]), 1e-6), antes = pinca;
+    pinca = pinca ? abertura < 0.5 : abertura < 0.3;
+    if (mx === null) { mx = x; my = y; }
+    var nx = mx + (x - mx) * 0.5, ny = my + (y - my) * 0.5;
+    if (pinca && antes) {
+      grupo.rotation.y += (nx - mx) * 5;
+      grupo.rotation.x = Math.max(-0.6, Math.min(0.6, grupo.rotation.x + (ny - my) * 3));
+    }
+    mx = nx; my = ny;
+    arrastando = pinca;
+    cena.classList.toggle("arrastando", pinca);
+    var p = painel.getBoundingClientRect();
+    cursor.hidden = false;
+    cursor.style.left = (nx * p.width) + "px";
+    cursor.style.top = (ny * p.height) + "px";
+    cursor.classList.toggle("agarrando", pinca);
+    if (pinca) { ativo = null; dica.hidden = true; dizer("Agarrando: mova a mão para girar."); }
+    else {
+      apontar({ clientX: p.left + nx * p.width, clientY: p.top + ny * p.height });
+      dizer("Junte o polegar e o indicador para agarrar e girar.");
+    }
+  }
+  function desligar(msg) {
+    maoLigada = false; pinca = false; arrastando = false; mx = null; ativo = null;
+    if (fluxo) fluxo.getTracks().forEach(function (t) { t.stop(); });
+    fluxo = null; video.srcObject = null; video.hidden = true; cursor.hidden = true; dica.hidden = true;
+    cena.classList.remove("arrastando");
+    btn.disabled = false; btn.textContent = "Controlar com a mão"; btn.setAttribute("aria-pressed", "false");
+    dizer(msg || "");
+  }
+  function laco() {
+    if (!maoLigada) return;
+    var passo = video.readyState >= 2 ? rastreador.send({ image: video }) : Promise.resolve();
+    passo.then(function () { requestAnimationFrame(laco); },
+               function () { desligar("O rastreamento da mão parou de funcionar."); });
+  }
+  function ligar() {
+    btn.disabled = true;
+    dizer("Pedindo acesso à câmera...");
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "user", width: 640, height: 480 }, audio: false })
+      .then(function (f) {
+        fluxo = f; video.srcObject = f; video.hidden = false;
+        dizer("Carregando o rastreamento de mão...");
+        return Promise.all([video.play(), carregar(MP + "hands.js")]);
+      })
+      .then(function () {
+        if (!rastreador) {
+          rastreador = new Hands({ locateFile: function (a) { return MP + a; } });
+          rastreador.setOptions({ maxNumHands: 1, modelComplexity: 0, minDetectionConfidence: 0.6, minTrackingConfidence: 0.5 });
+          rastreador.onResults(resultado);
+        }
+        maoLigada = true; btn.disabled = false; btn.textContent = "Parar a câmera"; btn.setAttribute("aria-pressed", "true");
+        dizer("Mostre a mão para a câmera.");
+        laco();
+      })
+      .catch(function () {
+        desligar(fluxo ? "Não consegui carregar o rastreamento de mão. Verifique a internet."
+                       : "Não consegui acessar a câmera. Verifique a permissão do navegador.");
+      });
+  }
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    document.getElementById("controles").hidden = false;
+    btn.addEventListener("click", function () { if (maoLigada) desligar(""); else ligar(); });
+  }
+
   quadro();
 })();
 </script>
