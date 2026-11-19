@@ -32,7 +32,14 @@ header { background:var(--cabecalho); color:var(--sobre-cabecalho); border-radiu
 .kicker { margin:0 0 10px; font-weight:600; font-size:.85rem; letter-spacing:.16em; text-transform:uppercase; }
 h1 { margin:0; font-family:var(--titulo); font-weight:400; font-size:clamp(1.9rem,5vw,2.9rem); line-height:1.12; text-wrap:balance; }
 .sub { margin:12px 0 0; max-width:60ch; line-height:1.45; font-size:1rem; }
-.painel { background:var(--painel); border-radius:22px; padding:clamp(8px,2vw,20px); }
+[hidden] { display:none !important; }
+.painel { position:relative; background:var(--painel); border-radius:22px; padding:clamp(8px,2vw,20px); }
+#cena3d { width:100%; aspect-ratio:1000/620; cursor:grab; touch-action:pan-y; }
+@media (max-width:600px) { #cena3d { aspect-ratio:1/1; } }
+#cena3d.arrastando { cursor:grabbing; }
+#cena3d canvas { display:block; width:100%; height:100%; }
+#dica { position:absolute; pointer-events:none; background:var(--papel); color:var(--texto); border:1px solid var(--linha);
+  border-radius:8px; padding:4px 10px; font-size:.9rem; font-weight:500; white-space:nowrap; }
 svg { width:100%; height:auto; display:block; }
 .p { text-anchor:middle; font-family:var(--corpo); font-weight:600; cursor:default; }
 .p:hover { opacity:.7; }
@@ -50,9 +57,136 @@ td:last-child, th:last-child { text-align:right; }
 <header>
   <p class="kicker">Tempo Social &middot; Folha de S.Paulo</p>
   <h1>Palavras mais frequentes nos artigos</h1>
-  <p class="sub">4 textos, 8535 palavras de conteúdo. Tamanho e cor indicam a frequência; passe o mouse para ver a contagem.</p>
+  <p class="sub">4 textos, 8535 palavras de conteúdo. Tamanho e cor indicam a frequência; arraste para girar e passe o mouse para ver a contagem.</p>
 </header>
-<div class="painel"><svg viewBox="0 0 1000 620" role="img" aria-label="Nuvem com as 53 palavras mais frequentes"><text class="p c0" x="500.0" y="341.3" font-size="92.0"><title>política: 82 ocorrências</title>política</text><text class="p c0" x="491.4" y="244.3" font-size="80.2"><title>polarização: 67 ocorrências</title>polarização</text><text class="p c0" x="558.4" y="426.9" font-size="75.1"><title>segurança: 61 ocorrências</title>segurança</text><text class="p c0" x="492.1" y="500.4" font-size="62.1"><title>policiais: 47 ocorrências</title>policiais</text><text class="p c0" x="419.5" y="161.9" font-size="55.9"><title>forças: 41 ocorrências</title>forças</text><text class="p c0" x="252.2" y="412.5" font-size="52.7"><title>pública: 38 ocorrências</title>pública</text><text class="p c0" x="416.5" y="103.3" font-size="51.6"><title>violência: 37 ocorrências</title>violência</text><text class="p c0" x="159.0" y="342.5" font-size="47.0"><title>políticas: 33 ocorrências</title>políticas</text><text class="p c0" x="809.2" y="304.9" font-size="44.6"><title>polícia: 31 ocorrências</title>polícia</text><text class="p c0" x="600.8" y="159.6" font-size="39.5"><title>público: 27 ocorrências</title>público</text><text class="p c0" x="466.9" y="546.8" font-size="38.2"><title>literatura: 26 ocorrências</title>literatura</text><text class="p c0" x="256.8" y="480.1" font-size="35.5"><title>valores: 24 ocorrências</title>valores</text><text class="p c1" x="668.5" y="102.8" font-size="35.5"><title>candidatos: 24 ocorrências</title>candidatos</text><text class="p c1" x="820.7" y="380.5" font-size="34.1"><title>grupos: 23 ocorrências</title>grupos</text><text class="p c1" x="842.9" y="225.2" font-size="32.7"><title>brasileiro: 22 ocorrências</title>brasileiro</text><text class="p c1" x="170.1" y="258.5" font-size="32.7"><title>social: 22 ocorrências</title>social</text><text class="p c1" x="733.8" y="166.6" font-size="32.7"><title>mundo: 22 ocorrências</title>mundo</text><text class="p c1" x="798.2" y="473.1" font-size="32.7"><title>militares: 22 ocorrências</title>militares</text><text class="p c1" x="195.5" y="162.7" font-size="31.2"><title>eleições: 21 ocorrências</title>eleições</text><text class="p c1" x="708.1" y="545.7" font-size="29.7"><title>político: 20 ocorrências</title>político</text><text class="p c1" x="579.7" y="580.4" font-size="29.7"><title>estudos: 20 ocorrências</title>estudos</text><text class="p c1" x="440.8" y="583.1" font-size="28.2"><title>debate: 19 ocorrências</title>debate</text><text class="p c1" x="421.6" y="52.1" font-size="28.2"><title>políticos: 19 ocorrências</title>políticos</text><text class="p c1" x="564.1" y="49.1" font-size="26.6"><title>federal: 18 ocorrências</title>federal</text><text class="p c2" x="892.5" y="410.5" font-size="26.6"><title>estado: 18 ocorrências</title>estado</text><text class="p c2" x="292.2" y="563.6" font-size="26.6"><title>posições: 18 ocorrências</title>posições</text><text class="p c2" x="102.6" y="417.3" font-size="26.6"><title>grupo: 18 ocorrências</title>grupo</text><text class="p c2" x="98.9" y="223.0" font-size="26.6"><title>pessoas: 18 ocorrências</title>pessoas</text><text class="p c2" x="833.9" y="507.7" font-size="26.6"><title>sociais: 18 ocorrências</title>sociais</text><text class="p c2" x="832.1" y="133.2" font-size="25.0"><title>brasileira: 17 ocorrências</title>brasileira</text><text class="p c2" x="160.6" y="123.4" font-size="25.0"><title>crime: 17 ocorrências</title>crime</text><text class="p c2" x="733.1" y="59.7" font-size="25.0"><title>democracia: 17 ocorrências</title>democracia</text><text class="p c2" x="136.5" y="511.1" font-size="25.0"><title>candidaturas: 17 ocorrências</title>candidaturas</text><text class="p c2" x="717.2" y="572.2" font-size="23.3"><title>disputa: 16 ocorrências</title>disputa</text><text class="p c2" x="573.4" y="607.2" font-size="23.3"><title>autores: 16 ocorrências</title>autores</text><text class="p c2" x="689.6" y="502.0" font-size="23.3"><title>anos: 16 ocorrências</title>anos</text><text class="p c3" x="277.7" y="41.8" font-size="23.3"><title>pesquisa: 16 ocorrências</title>pesquisa</text><text class="p c3" x="723.6" y="601.4" font-size="23.3"><title>sistema: 16 ocorrências</title>sistema</text><text class="p c3" x="942.9" y="438.2" font-size="23.3"><title>quanto: 16 ocorrências</title>quanto</text><text class="p c3" x="240.5" y="590.2" font-size="23.3"><title>partido: 16 ocorrências</title>partido</text><text class="p c3" x="49.1" y="192.5" font-size="23.3"><title>ordem: 16 ocorrências</title>ordem</text><text class="p c3" x="935.4" y="318.2" font-size="21.6"><title>tempo: 15 ocorrências</title>tempo</text><text class="p c3" x="855.0" y="532.0" font-size="21.6"><title>esquerda: 15 ocorrências</title>esquerda</text><text class="p c3" x="140.1" y="96.0" font-size="21.6"><title>nacional: 15 ocorrências</title>nacional</text><text class="p c3" x="420.0" y="606.0" font-size="19.8"><title>país: 14 ocorrências</title>país</text><text class="p c3" x="787.1" y="31.6" font-size="19.8"><title>plataformas: 14 ocorrências</title>plataformas</text><text class="p c3" x="873.8" y="558.6" font-size="19.8"><title>discurso: 14 ocorrências</title>discurso</text><text class="p c3" x="121.8" y="67.3" font-size="17.9"><title>mercado: 13 ocorrências</title>mercado</text><text class="p c4" x="328.8" y="443.4" font-size="17.9"><title>estudo: 13 ocorrências</title>estudo</text><text class="p c4" x="890.3" y="586.1" font-size="17.9"><title>direita: 13 ocorrências</title>direita</text><text class="p c4" x="106.0" y="38.8" font-size="17.9"><title>eleitorais: 13 ocorrências</title>eleitorais</text><text class="p c4" x="939.3" y="110.2" font-size="17.9"><title>poder: 13 ocorrências</title>poder</text><text class="p c4" x="245.8" y="279.3" font-size="16.0"><title>vezes: 12 ocorrências</title>vezes</text></svg></div>
+<div class="painel" id="painel"><div id="cena3d" hidden></div><div id="dica" hidden></div><svg viewBox="0 0 1000 620" role="img" aria-label="Nuvem com as 53 palavras mais frequentes"><text class="p c0" x="500.0" y="341.3" font-size="92.0"><title>política: 82 ocorrências</title>política</text><text class="p c0" x="491.4" y="244.3" font-size="80.2"><title>polarização: 67 ocorrências</title>polarização</text><text class="p c0" x="558.4" y="426.9" font-size="75.1"><title>segurança: 61 ocorrências</title>segurança</text><text class="p c0" x="492.1" y="500.4" font-size="62.1"><title>policiais: 47 ocorrências</title>policiais</text><text class="p c0" x="419.5" y="161.9" font-size="55.9"><title>forças: 41 ocorrências</title>forças</text><text class="p c0" x="252.2" y="412.5" font-size="52.7"><title>pública: 38 ocorrências</title>pública</text><text class="p c0" x="416.5" y="103.3" font-size="51.6"><title>violência: 37 ocorrências</title>violência</text><text class="p c0" x="159.0" y="342.5" font-size="47.0"><title>políticas: 33 ocorrências</title>políticas</text><text class="p c0" x="809.2" y="304.9" font-size="44.6"><title>polícia: 31 ocorrências</title>polícia</text><text class="p c0" x="600.8" y="159.6" font-size="39.5"><title>público: 27 ocorrências</title>público</text><text class="p c0" x="466.9" y="546.8" font-size="38.2"><title>literatura: 26 ocorrências</title>literatura</text><text class="p c0" x="256.8" y="480.1" font-size="35.5"><title>valores: 24 ocorrências</title>valores</text><text class="p c1" x="668.5" y="102.8" font-size="35.5"><title>candidatos: 24 ocorrências</title>candidatos</text><text class="p c1" x="820.7" y="380.5" font-size="34.1"><title>grupos: 23 ocorrências</title>grupos</text><text class="p c1" x="842.9" y="225.2" font-size="32.7"><title>brasileiro: 22 ocorrências</title>brasileiro</text><text class="p c1" x="170.1" y="258.5" font-size="32.7"><title>social: 22 ocorrências</title>social</text><text class="p c1" x="733.8" y="166.6" font-size="32.7"><title>mundo: 22 ocorrências</title>mundo</text><text class="p c1" x="798.2" y="473.1" font-size="32.7"><title>militares: 22 ocorrências</title>militares</text><text class="p c1" x="195.5" y="162.7" font-size="31.2"><title>eleições: 21 ocorrências</title>eleições</text><text class="p c1" x="708.1" y="545.7" font-size="29.7"><title>político: 20 ocorrências</title>político</text><text class="p c1" x="579.7" y="580.4" font-size="29.7"><title>estudos: 20 ocorrências</title>estudos</text><text class="p c1" x="440.8" y="583.1" font-size="28.2"><title>debate: 19 ocorrências</title>debate</text><text class="p c1" x="421.6" y="52.1" font-size="28.2"><title>políticos: 19 ocorrências</title>políticos</text><text class="p c1" x="564.1" y="49.1" font-size="26.6"><title>federal: 18 ocorrências</title>federal</text><text class="p c2" x="892.5" y="410.5" font-size="26.6"><title>estado: 18 ocorrências</title>estado</text><text class="p c2" x="292.2" y="563.6" font-size="26.6"><title>posições: 18 ocorrências</title>posições</text><text class="p c2" x="102.6" y="417.3" font-size="26.6"><title>grupo: 18 ocorrências</title>grupo</text><text class="p c2" x="98.9" y="223.0" font-size="26.6"><title>pessoas: 18 ocorrências</title>pessoas</text><text class="p c2" x="833.9" y="507.7" font-size="26.6"><title>sociais: 18 ocorrências</title>sociais</text><text class="p c2" x="832.1" y="133.2" font-size="25.0"><title>brasileira: 17 ocorrências</title>brasileira</text><text class="p c2" x="160.6" y="123.4" font-size="25.0"><title>crime: 17 ocorrências</title>crime</text><text class="p c2" x="733.1" y="59.7" font-size="25.0"><title>democracia: 17 ocorrências</title>democracia</text><text class="p c2" x="136.5" y="511.1" font-size="25.0"><title>candidaturas: 17 ocorrências</title>candidaturas</text><text class="p c2" x="717.2" y="572.2" font-size="23.3"><title>disputa: 16 ocorrências</title>disputa</text><text class="p c2" x="573.4" y="607.2" font-size="23.3"><title>autores: 16 ocorrências</title>autores</text><text class="p c2" x="689.6" y="502.0" font-size="23.3"><title>anos: 16 ocorrências</title>anos</text><text class="p c3" x="277.7" y="41.8" font-size="23.3"><title>pesquisa: 16 ocorrências</title>pesquisa</text><text class="p c3" x="723.6" y="601.4" font-size="23.3"><title>sistema: 16 ocorrências</title>sistema</text><text class="p c3" x="942.9" y="438.2" font-size="23.3"><title>quanto: 16 ocorrências</title>quanto</text><text class="p c3" x="240.5" y="590.2" font-size="23.3"><title>partido: 16 ocorrências</title>partido</text><text class="p c3" x="49.1" y="192.5" font-size="23.3"><title>ordem: 16 ocorrências</title>ordem</text><text class="p c3" x="935.4" y="318.2" font-size="21.6"><title>tempo: 15 ocorrências</title>tempo</text><text class="p c3" x="855.0" y="532.0" font-size="21.6"><title>esquerda: 15 ocorrências</title>esquerda</text><text class="p c3" x="140.1" y="96.0" font-size="21.6"><title>nacional: 15 ocorrências</title>nacional</text><text class="p c3" x="420.0" y="606.0" font-size="19.8"><title>país: 14 ocorrências</title>país</text><text class="p c3" x="787.1" y="31.6" font-size="19.8"><title>plataformas: 14 ocorrências</title>plataformas</text><text class="p c3" x="873.8" y="558.6" font-size="19.8"><title>discurso: 14 ocorrências</title>discurso</text><text class="p c3" x="121.8" y="67.3" font-size="17.9"><title>mercado: 13 ocorrências</title>mercado</text><text class="p c4" x="328.8" y="443.4" font-size="17.9"><title>estudo: 13 ocorrências</title>estudo</text><text class="p c4" x="890.3" y="586.1" font-size="17.9"><title>direita: 13 ocorrências</title>direita</text><text class="p c4" x="106.0" y="38.8" font-size="17.9"><title>eleitorais: 13 ocorrências</title>eleitorais</text><text class="p c4" x="939.3" y="110.2" font-size="17.9"><title>poder: 13 ocorrências</title>poder</text><text class="p c4" x="245.8" y="279.3" font-size="16.0"><title>vezes: 12 ocorrências</title>vezes</text></svg></div>
 <p class="nota">A contagem é pela forma exata da palavra: "política", "políticas" e "político" aparecem separadas. Bibliografia, cabeçalhos e palavras funcionais ficaram de fora.</p>
 <details><summary>Ver como tabela</summary><div class="tabela"><table><thead><tr><th>#</th><th>Termo</th><th>Ocorrências</th></tr></thead><tbody><tr><td>1</td><td>política</td><td>82</td></tr><tr><td>2</td><td>polarização</td><td>67</td></tr><tr><td>3</td><td>segurança</td><td>61</td></tr><tr><td>4</td><td>policiais</td><td>47</td></tr><tr><td>5</td><td>forças</td><td>41</td></tr><tr><td>6</td><td>pública</td><td>38</td></tr><tr><td>7</td><td>violência</td><td>37</td></tr><tr><td>8</td><td>políticas</td><td>33</td></tr><tr><td>9</td><td>polícia</td><td>31</td></tr><tr><td>10</td><td>público</td><td>27</td></tr><tr><td>11</td><td>literatura</td><td>26</td></tr><tr><td>12</td><td>valores</td><td>24</td></tr><tr><td>13</td><td>candidatos</td><td>24</td></tr><tr><td>14</td><td>grupos</td><td>23</td></tr><tr><td>15</td><td>brasileiro</td><td>22</td></tr><tr><td>16</td><td>social</td><td>22</td></tr><tr><td>17</td><td>mundo</td><td>22</td></tr><tr><td>18</td><td>militares</td><td>22</td></tr><tr><td>19</td><td>eleições</td><td>21</td></tr><tr><td>20</td><td>político</td><td>20</td></tr><tr><td>21</td><td>estudos</td><td>20</td></tr><tr><td>22</td><td>debate</td><td>19</td></tr><tr><td>23</td><td>políticos</td><td>19</td></tr><tr><td>24</td><td>federal</td><td>18</td></tr><tr><td>25</td><td>estado</td><td>18</td></tr><tr><td>26</td><td>posições</td><td>18</td></tr><tr><td>27</td><td>grupo</td><td>18</td></tr><tr><td>28</td><td>pessoas</td><td>18</td></tr><tr><td>29</td><td>sociais</td><td>18</td></tr><tr><td>30</td><td>brasileira</td><td>17</td></tr><tr><td>31</td><td>crime</td><td>17</td></tr><tr><td>32</td><td>democracia</td><td>17</td></tr><tr><td>33</td><td>candidaturas</td><td>17</td></tr><tr><td>34</td><td>disputa</td><td>16</td></tr><tr><td>35</td><td>autores</td><td>16</td></tr><tr><td>36</td><td>anos</td><td>16</td></tr><tr><td>37</td><td>pesquisa</td><td>16</td></tr><tr><td>38</td><td>sistema</td><td>16</td></tr><tr><td>39</td><td>quanto</td><td>16</td></tr><tr><td>40</td><td>partido</td><td>16</td></tr><tr><td>41</td><td>ordem</td><td>16</td></tr><tr><td>42</td><td>tempo</td><td>15</td></tr><tr><td>43</td><td>esquerda</td><td>15</td></tr><tr><td>44</td><td>nacional</td><td>15</td></tr><tr><td>45</td><td>país</td><td>14</td></tr><tr><td>46</td><td>plataformas</td><td>14</td></tr><tr><td>47</td><td>discurso</td><td>14</td></tr><tr><td>48</td><td>mercado</td><td>13</td></tr><tr><td>49</td><td>estudo</td><td>13</td></tr><tr><td>50</td><td>direita</td><td>13</td></tr><tr><td>51</td><td>eleitorais</td><td>13</td></tr><tr><td>52</td><td>poder</td><td>13</td></tr><tr><td>53</td><td>vezes</td><td>12</td></tr></tbody></table></div></details>
-</main></body></html>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// Nuvem 3D com three.js. Sem WebGL ou sem a biblioteca, a nuvem SVG estática continua visível.
+(function () {
+  var DADOS = [{"t": "política", "n": 82, "c": 0}, {"t": "polarização", "n": 67, "c": 0}, {"t": "segurança", "n": 61, "c": 0}, {"t": "policiais", "n": 47, "c": 0}, {"t": "forças", "n": 41, "c": 0}, {"t": "pública", "n": 38, "c": 0}, {"t": "violência", "n": 37, "c": 0}, {"t": "políticas", "n": 33, "c": 0}, {"t": "polícia", "n": 31, "c": 0}, {"t": "público", "n": 27, "c": 0}, {"t": "literatura", "n": 26, "c": 0}, {"t": "valores", "n": 24, "c": 0}, {"t": "candidatos", "n": 24, "c": 1}, {"t": "grupos", "n": 23, "c": 1}, {"t": "brasileiro", "n": 22, "c": 1}, {"t": "social", "n": 22, "c": 1}, {"t": "mundo", "n": 22, "c": 1}, {"t": "militares", "n": 22, "c": 1}, {"t": "eleições", "n": 21, "c": 1}, {"t": "político", "n": 20, "c": 1}, {"t": "estudos", "n": 20, "c": 1}, {"t": "debate", "n": 19, "c": 1}, {"t": "políticos", "n": 19, "c": 1}, {"t": "federal", "n": 18, "c": 1}, {"t": "estado", "n": 18, "c": 2}, {"t": "posições", "n": 18, "c": 2}, {"t": "grupo", "n": 18, "c": 2}, {"t": "pessoas", "n": 18, "c": 2}, {"t": "sociais", "n": 18, "c": 2}, {"t": "brasileira", "n": 17, "c": 2}, {"t": "crime", "n": 17, "c": 2}, {"t": "democracia", "n": 17, "c": 2}, {"t": "candidaturas", "n": 17, "c": 2}, {"t": "disputa", "n": 16, "c": 2}, {"t": "autores", "n": 16, "c": 2}, {"t": "anos", "n": 16, "c": 2}, {"t": "pesquisa", "n": 16, "c": 3}, {"t": "sistema", "n": 16, "c": 3}, {"t": "quanto", "n": 16, "c": 3}, {"t": "partido", "n": 16, "c": 3}, {"t": "ordem", "n": 16, "c": 3}, {"t": "tempo", "n": 15, "c": 3}, {"t": "esquerda", "n": 15, "c": 3}, {"t": "nacional", "n": 15, "c": 3}, {"t": "país", "n": 14, "c": 3}, {"t": "plataformas", "n": 14, "c": 3}, {"t": "discurso", "n": 14, "c": 3}, {"t": "mercado", "n": 13, "c": 3}, {"t": "estudo", "n": 13, "c": 4}, {"t": "direita", "n": 13, "c": 4}, {"t": "eleitorais", "n": 13, "c": 4}, {"t": "poder", "n": 13, "c": 4}, {"t": "vezes", "n": 12, "c": 4}];
+  var painel = document.getElementById("painel"), cena = document.getElementById("cena3d"),
+      dica = document.getElementById("dica"), svg = painel.querySelector("svg");
+  if (!window.THREE || !DADOS.length) return;
+  var renderer;
+  try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); } catch (e) { return; }
+  svg.setAttribute("hidden", "");
+  cena.hidden = false;
+  cena.appendChild(renderer.domElement);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+  var R = 13, FOV = 30;
+  var scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(FOV, 1, 0.1, 300), grupo = new THREE.Group();
+  scene.add(grupo);
+  var maior = Math.sqrt(DADOS[0].n), menor = Math.sqrt(DADOS[DADOS.length - 1].n);
+
+  function cor(c) {
+    return getComputedStyle(document.documentElement).getPropertyValue("--c" + c).trim() || "#303030";
+  }
+  function textura(d) {
+    var cv = document.createElement("canvas"), g = cv.getContext("2d"), px = 96;
+    var fonte = "600 " + px + "px Barlow, Arial, sans-serif";
+    g.font = fonte;
+    cv.width = Math.ceil(g.measureText(d.t).width) + 24;
+    cv.height = Math.ceil(px * 1.3);
+    g.font = fonte; g.textAlign = "center"; g.textBaseline = "middle"; g.fillStyle = cor(d.c);
+    g.fillText(d.t, cv.width / 2, cv.height / 2);
+    var t = new THREE.CanvasTexture(cv);
+    t.minFilter = THREE.LinearFilter; t.generateMipmaps = false;
+    return t;
+  }
+  function vestir(s) {
+    var d = s.userData, antiga = s.material.map;
+    s.material.map = textura(d);
+    s.material.needsUpdate = true;
+    if (antiga) antiga.dispose();
+    // Raiz quadrada, como na nuvem plana: a área cresce com a frequência.
+    var e = (Math.sqrt(d.n) - menor) / Math.max(maior - menor, 1e-9), h = 0.8 + e * 1.7;
+    s.scale.set(h * s.material.map.image.width / s.material.map.image.height, h, 1);
+  }
+  function frac(x) { return x - Math.floor(x); }
+
+  // As palavras se espalham pela superfície de uma esfera achatada; as do lado de trás ficam apagadas.
+  var sprites = DADOS.map(function (d, i) {
+    var s = new THREE.Sprite(new THREE.SpriteMaterial({ transparent: true, depthWrite: false }));
+    s.userData = d;
+    vestir(s);
+    var r = R;
+    var y = 1 - 2 * frac(0.5 + i * 0.7548776662), ang = 2 * Math.PI * frac(i * 0.5698402910), xz = Math.sqrt(1 - y * y);
+    s.position.set(r * xz * Math.cos(ang), r * y * 0.7, r * xz * Math.sin(ang));
+    grupo.add(s);
+    return s;
+  });
+
+  function repintar() { sprites.forEach(vestir); }
+  if (document.fonts && document.fonts.load) document.fonts.load("600 96px Barlow").then(repintar, function () {});
+  try {
+    matchMedia("(prefers-color-scheme: dark)").addEventListener("change", repintar);
+    new MutationObserver(repintar).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  } catch (e) {}
+
+  function ajustar() {
+    var w = cena.clientWidth, h = cena.clientHeight;
+    if (!w || !h) return;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    var tg = Math.tan(FOV * Math.PI / 360);
+    camera.position.z = Math.max((R * 0.7 + 1.5) / tg, (R + 3) / (tg * camera.aspect)) * 1.12;
+    camera.updateProjectionMatrix();
+  }
+  ajustar();
+  if (window.ResizeObserver) new ResizeObserver(ajustar).observe(cena); else addEventListener("resize", ajustar);
+
+  var raio = new THREE.Raycaster(), ponto = new THREE.Vector2(), ativo = null, arrastando = false, ultX = 0, ultY = 0;
+  function apontar(ev) {
+    var q = renderer.domElement.getBoundingClientRect(), p = painel.getBoundingClientRect();
+    ponto.set((ev.clientX - q.left) / q.width * 2 - 1, -(ev.clientY - q.top) / q.height * 2 + 1);
+    raio.setFromCamera(ponto, camera);
+    var achado = raio.intersectObjects(sprites)[0];
+    ativo = achado ? achado.object : null;
+    if (!ativo) { dica.hidden = true; return; }
+    dica.textContent = ativo.userData.t + ": " + ativo.userData.n + " ocorrências";
+    dica.hidden = false;
+    dica.style.left = Math.max(4, Math.min(ev.clientX - p.left + 14, p.width - dica.offsetWidth - 4)) + "px";
+    dica.style.top = Math.max(4, ev.clientY - p.top - 36) + "px";
+  }
+  var tela = renderer.domElement;
+  tela.addEventListener("pointerdown", function (ev) {
+    arrastando = true; ultX = ev.clientX; ultY = ev.clientY;
+    cena.classList.add("arrastando");
+    try { tela.setPointerCapture(ev.pointerId); } catch (e) {}
+    apontar(ev);
+  });
+  tela.addEventListener("pointermove", function (ev) {
+    if (arrastando) {
+      grupo.rotation.y += (ev.clientX - ultX) * 0.006;
+      grupo.rotation.x = Math.max(-0.6, Math.min(0.6, grupo.rotation.x + (ev.clientY - ultY) * 0.004));
+      ultX = ev.clientX; ultY = ev.clientY;
+      dica.hidden = true;
+    } else apontar(ev);
+  });
+  function soltar() { arrastando = false; cena.classList.remove("arrastando"); }
+  tela.addEventListener("pointerup", soltar);
+  tela.addEventListener("pointercancel", soltar);
+  tela.addEventListener("pointerleave", function () { if (!arrastando) { ativo = null; dica.hidden = true; } });
+
+  var parado = matchMedia("(prefers-reduced-motion: reduce)").matches, v = new THREE.Vector3();
+  function quadro() {
+    if (!parado && !arrastando && !ativo) grupo.rotation.y += 0.0022;
+    grupo.updateMatrixWorld();
+    // As palavras do fundo ficam mais apagadas, para as da frente continuarem legíveis.
+    sprites.forEach(function (s) {
+      s.getWorldPosition(v);
+      var t = Math.max(0, Math.min(1, (v.z + R) / (2 * R)));
+      s.material.opacity = s === ativo ? 1 : 0.1 + 0.9 * t * t * t;
+    });
+    renderer.render(scene, camera);
+    requestAnimationFrame(quadro);
+  }
+  quadro();
+})();
+</script>
+</body></html>
